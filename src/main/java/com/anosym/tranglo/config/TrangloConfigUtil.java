@@ -4,8 +4,8 @@
  */
 package com.anosym.tranglo.config;
 
-import com.anosym.vjax.VMarshaller;
 import com.anosym.vjax.VXMLBindingException;
+import com.anosym.vjax.v3.VObjectMarshaller;
 import com.anosym.vjax.xml.VDocument;
 import java.io.File;
 import java.util.Calendar;
@@ -28,10 +28,10 @@ public class TrangloConfigUtil {
     if (!trangloConfigPath.exists()) {
       try {
         TrangloConfiguration newTrangloConfig = new TrangloConfiguration("replace_with_username", "update_with_account_password");
-        VDocument doc = new VMarshaller<TrangloConfiguration>().marshallDocument(newTrangloConfig);
+        VDocument doc = new VObjectMarshaller<TrangloConfiguration>(TrangloConfiguration.class).marshall(newTrangloConfig);
         doc.setDocumentName(trangloConfigPath);
         doc.writeDocument();
-      } catch (VXMLBindingException ex) {
+      } catch (Exception ex) {
         Logger.getLogger(TrangloConfigUtil.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
@@ -44,11 +44,9 @@ public class TrangloConfigUtil {
       try {
         File trangloConfigPath = new File(System.getProperty(TRANGLO_CONFIG_PROPERTY, System.getProperty("user.home")), "tranglo.xml");
         VDocument doc = VDocument.parseDocument(trangloConfigPath);
-        TrangloConfiguration trangloConfigReloaded = new VMarshaller<TrangloConfiguration>().unmarshall(doc);
+        TrangloConfiguration trangloConfigReloaded = new VObjectMarshaller<TrangloConfiguration>(TrangloConfiguration.class).unmarshall(doc);
         if (trangloConfigReloaded != null) {
           if (trangloConfigReloaded.getUsername().equals("replace_with_username")) {
-            //reset to null, in order to make sure that we load the correct configuration.
-            trangloConfigReloaded = null;
           } else {
             synchronized (TrangloConfigUtil.class) {
               TrangloConfigUtil.trangloConfig = trangloConfigReloaded;
