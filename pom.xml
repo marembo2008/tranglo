@@ -24,7 +24,7 @@
       <groupId>com.sun.xml.ws</groupId>
       <artifactId>webservices-rt</artifactId>
       <version>1.4</version>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.anosym.vjax</groupId>
