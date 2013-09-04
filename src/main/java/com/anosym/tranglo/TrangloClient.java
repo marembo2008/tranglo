@@ -76,6 +76,9 @@ public class TrangloClient {
   public TrangloResponseCode sendAirtime(String from, String to, int amount, String transactionId) {
     //create this on a need basis
     EPinReloadSoap service = getEPinReloadService();
+    if (to.trim().startsWith("+")) {
+      to = to.trim().substring(1);
+    }
     String responseCode = service.requestReload(from, to, prodCode, amount, username, password, transactionId);
     return TrangloResponseCode.value(responseCode);
   }
@@ -88,12 +91,12 @@ public class TrangloClient {
 
   public static void main(String[] args) {
     TrangloClient tc = TrangloClient.getInstance();
-    String saNumber = "27823037082";
+    String saNumber = "263719456123";
     String from = saNumber;
     String to = from;
     int amount = 5;
     String transId = System.nanoTime() + "";
-    TrangloResponseCode res = tc.sendAirtime(from, to, amount, transId);
+    TrangloResponseCode res = tc.sendAirtime("+" + from, to, amount, transId);
     System.out.println(res);
     TrangloResponseCode status = tc.enquireAirtimeTransactionStatus(transId);
     System.out.println(status);
