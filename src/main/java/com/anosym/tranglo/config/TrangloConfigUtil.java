@@ -27,7 +27,7 @@ public class TrangloConfigUtil {
     Logger.getLogger(TrangloConfigUtil.class.getName()).log(Level.INFO, "TRANGLO_CONFIG_PROPERTY: {0}", trangloConfigPath.getAbsolutePath());
     if (!trangloConfigPath.exists()) {
       try {
-        TrangloConfiguration newTrangloConfig = new TrangloConfiguration("replace_with_username", "update_with_account_password");
+        TrangloConfiguration newTrangloConfig = new TrangloConfiguration();
         VDocument doc = new VObjectMarshaller<TrangloConfiguration>(TrangloConfiguration.class).marshall(newTrangloConfig);
         doc.setDocumentName(trangloConfigPath);
         doc.writeDocument();
@@ -35,6 +35,13 @@ public class TrangloConfigUtil {
         Logger.getLogger(TrangloConfigUtil.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
+  }
+
+  private static void update() {
+    File trangloConfigPath = new File(System.getProperty(TRANGLO_CONFIG_PROPERTY, System.getProperty("user.home")), "tranglo.xml");
+    VDocument doc = new VObjectMarshaller<TrangloConfiguration>(TrangloConfiguration.class).marshall(trangloConfig);
+    doc.setDocumentName(trangloConfigPath);
+    doc.writeDocument();
   }
 
   private static void load() {
@@ -50,6 +57,7 @@ public class TrangloConfigUtil {
           } else {
             synchronized (TrangloConfigUtil.class) {
               TrangloConfigUtil.trangloConfig = trangloConfigReloaded;
+              update();
             }
           }
         }
@@ -65,5 +73,13 @@ public class TrangloConfigUtil {
      */
     load();
     return trangloConfig;
+  }
+
+  public static String getServiceEndPoint() {
+    return getTrangloConfigurations().getServiceEndPoint();
+  }
+
+  public static boolean isUseProvidedEndPoint() {
+    return trangloConfig.isUseProvidedEndPoint();
   }
 }

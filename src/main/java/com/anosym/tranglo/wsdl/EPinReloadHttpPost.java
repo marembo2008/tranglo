@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "EPin_ReloadHttpPost", targetNamespace = "http://tempuri.org/")
+@WebService(name = "EPin_ReloadHttpPost", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 @XmlSeeAlso({
     ObjectFactory.class

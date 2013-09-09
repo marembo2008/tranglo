@@ -8,6 +8,7 @@ import com.anosym.tranglo.config.TrangloConfigUtil;
 import com.anosym.tranglo.config.TrangloConfiguration;
 import com.anosym.tranglo.wsdl.EPinReload;
 import com.anosym.tranglo.wsdl.EPinReloadSoap;
+import javax.xml.ws.BindingProvider;
 
 /**
  *
@@ -46,6 +47,12 @@ public class TrangloClient {
   private EPinReloadSoap getEPinReloadService() {
     EPinReload serviceDescriptor = new EPinReload();
     EPinReloadSoap service = serviceDescriptor.getEPinReloadSoap();
+    /* Set NEW Endpoint Location */
+    String endpointURL = trangloConfig.getServiceEndPoint();
+    if (endpointURL != null && trangloConfig.isUseProvidedEndPoint()) {
+      BindingProvider bp = (BindingProvider) service;
+      bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
+    }
     service.ping();
     return service;
   }

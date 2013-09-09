@@ -9,31 +9,79 @@ package com.anosym.tranglo.config;
  * @author kenn
  */
 public class TrangloConfiguration {
-    private String username = "";
-    private String password = "";
 
-    public TrangloConfiguration() {
-    }
+  private String testUsername = "";
+  private String testPassword = "";
+  private String liveUsername = "";
+  private String livePassword = "";
+  private boolean testMode = true;
+  private String serviceEndPoint = "http://api.tranglo.com:8001/eReload/EPin_Reload.asmx";
+  private boolean useProvidedEndPoint = false;
 
-    public TrangloConfiguration(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+  public TrangloConfiguration() {
+  }
 
-    public String getUsername() {
-        return username;
-    }
+  public String getTestUsername() {
+    return testUsername;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public void setTestUsername(String testUsername) {
+    this.testUsername = testUsername;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public String getTestPassword() {
+    return testPassword;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
+  public void setTestPassword(String testPassword) {
+    this.testPassword = testPassword;
+  }
+
+  public String getLiveUsername() {
+    return liveUsername;
+  }
+
+  public void setLiveUsername(String liveUsername) {
+    this.liveUsername = liveUsername;
+  }
+
+  public String getLivePassword() {
+    return livePassword;
+  }
+
+  public void setLivePassword(String livePassword) {
+    this.livePassword = livePassword;
+  }
+
+  public boolean isTestMode() {
+    return testMode;
+  }
+
+  public void setTestMode(boolean testMode) {
+    this.testMode = testMode;
+  }
+
+  public boolean isUseProvidedEndPoint() {
+    return useProvidedEndPoint;
+  }
+
+  public void setUseProvidedEndPoint(boolean useProvidedEndPoint) {
+    this.useProvidedEndPoint = useProvidedEndPoint;
+  }
+
+  public void setServiceEndPoint(String serviceEndPoint) {
+    this.serviceEndPoint = serviceEndPoint;
+  }
+
+  public String getServiceEndPoint() {
+    return serviceEndPoint;
+  }
+
+  public String getUsername() {
+    return testMode ? testUsername : liveUsername;
+  }
+
+  public String getPassword() {
+    return testMode ? testPassword : livePassword;
+  }
 }
