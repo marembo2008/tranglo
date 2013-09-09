@@ -64,6 +64,15 @@ public class TrangloClient {
     return sender;
   }
 
+  public static TrangloClient getInstance(boolean forceReload) throws IllegalStateException {
+    if (sender == null || forceReload) {
+      synchronized (TrangloClient.class) {
+        sender = new TrangloClient();
+      }
+    }
+    return sender;
+  }
+
   public static TrangloClient getInstance(TrangloConfiguration config) throws IllegalStateException {
     if (sender == null) {
       sender = new TrangloClient(config);
