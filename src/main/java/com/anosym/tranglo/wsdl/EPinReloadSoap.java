@@ -29,7 +29,7 @@ public interface EPinReloadSoap {
    * @param password
    * @return returns java.lang.String
    */
-  @WebMethod(operationName = "Request_Reload", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/Request_Reload")
+  @WebMethod(operationName = "Request_Reload", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "Request_Reload")
   @WebResult(name = "Request_ReloadResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "Request_Reload", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.RequestReload")
   @ResponseWrapper(localName = "Request_ReloadResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.RequestReloadResponse")
@@ -54,7 +54,7 @@ public interface EPinReloadSoap {
    * @return returns
    * com.anosym.tranglo.wsdl.RequestReloadAmountNewResponse.RequestReloadAmountNewResult
    */
-  @WebMethod(operationName = "Request_ReloadAmount_New", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/Request_ReloadAmount_New")
+  @WebMethod(operationName = "Request_ReloadAmount_New", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "Request_ReloadAmount_New")
   @WebResult(name = "Request_ReloadAmount_NewResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "Request_ReloadAmount_New", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.RequestReloadAmountNew")
   @ResponseWrapper(localName = "Request_ReloadAmount_NewResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.RequestReloadAmountNewResponse")
@@ -71,7 +71,7 @@ public interface EPinReloadSoap {
    *
    * @return returns int
    */
-  @WebMethod(operationName = "Ping", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/Ping")
+  @WebMethod(operationName = "Ping", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "Ping")
   @WebResult(name = "PingResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "Ping", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.Ping")
   @ResponseWrapper(localName = "PingResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.PingResponse")
@@ -84,7 +84,7 @@ public interface EPinReloadSoap {
    * @param password
    * @return returns java.lang.String
    */
-  @WebMethod(operationName = "Transaction_Inquiry", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/Transaction_Inquiry")
+  @WebMethod(operationName = "Transaction_Inquiry", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "Transaction_Inquiry")
   @WebResult(name = "Transaction_InquiryResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "Transaction_Inquiry", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.TransactionInquiry")
   @ResponseWrapper(localName = "Transaction_InquiryResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.TransactionInquiryResponse")
@@ -101,7 +101,7 @@ public interface EPinReloadSoap {
    * @return returns
    * com.anosym.tranglo.wsdl.TransactionInquiryDetailsResponse.TransactionInquiryDetailsResult
    */
-  @WebMethod(operationName = "Transaction_Inquiry_Details", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/Transaction_Inquiry_Details")
+  @WebMethod(operationName = "Transaction_Inquiry_Details", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "Transaction_Inquiry_Details")
   @WebResult(name = "Transaction_Inquiry_DetailsResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "Transaction_Inquiry_Details", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.TransactionInquiryDetails")
   @ResponseWrapper(localName = "Transaction_Inquiry_DetailsResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.TransactionInquiryDetailsResponse")
@@ -117,7 +117,7 @@ public interface EPinReloadSoap {
    * @param password
    * @return returns com.anosym.tranglo.wsdl.EWalletInquiryResponse.EWalletInquiryResult
    */
-  @WebMethod(operationName = "EWallet_Inquiry", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/EWallet_Inquiry")
+  @WebMethod(operationName = "EWallet_Inquiry", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "EWallet_Inquiry")
   @WebResult(name = "EWallet_InquiryResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "EWallet_Inquiry", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.EWalletInquiry")
   @ResponseWrapper(localName = "EWallet_InquiryResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.EWalletInquiryResponse")
@@ -135,7 +135,7 @@ public interface EPinReloadSoap {
    * @param password
    * @return returns com.anosym.tranglo.wsdl.ProductPriceInquiryResponse.ProductPriceInquiryResult
    */
-  @WebMethod(operationName = "Product_Price_Inquiry", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/Product_Price_Inquiry")
+  @WebMethod(operationName = "Product_Price_Inquiry", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "Product_Price_Inquiry")
   @WebResult(name = "Product_Price_InquiryResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "Product_Price_Inquiry", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.ProductPriceInquiry")
   @ResponseWrapper(localName = "Product_Price_InquiryResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.ProductPriceInquiryResponse")
@@ -157,7 +157,7 @@ public interface EPinReloadSoap {
    * @param password
    * @return returns java.lang.String
    */
-  @WebMethod(operationName = "Request_Reload_New", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/Request_Reload_New")
+  @WebMethod(operationName = "Request_Reload_New", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "Request_Reload_New")
   @WebResult(name = "Request_Reload_NewResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "Request_Reload_New", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.RequestReloadNew")
   @ResponseWrapper(localName = "Request_Reload_NewResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.RequestReloadNewResponse")
@@ -181,7 +181,7 @@ public interface EPinReloadSoap {
    * @param password
    * @return returns com.anosym.tranglo.wsdl.RequestReloadAmountResponse.RequestReloadAmountResult
    */
-  @WebMethod(operationName = "Request_ReloadAmount", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE+"/Request_ReloadAmount")
+  @WebMethod(operationName = "Request_ReloadAmount", action = EPinReload.EPINRELOAD_TARGET_NAMESPACE + "Request_ReloadAmount")
   @WebResult(name = "Request_ReloadAmountResult", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE)
   @RequestWrapper(localName = "Request_ReloadAmount", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.RequestReloadAmount")
   @ResponseWrapper(localName = "Request_ReloadAmountResponse", targetNamespace = EPinReload.EPINRELOAD_TARGET_NAMESPACE, className = "com.anosym.tranglo.wsdl.RequestReloadAmountResponse")
