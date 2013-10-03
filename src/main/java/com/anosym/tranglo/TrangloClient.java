@@ -112,7 +112,7 @@ public class TrangloClient {
     String to = from;
     int amount = 5;
     String transId = System.nanoTime() + "";
-    TrangloResponseCode res = tc.sendAirtime("+" + from, to, amount, transId);
+    TrangloResponseCode res = tc.sendAirtime(from, to, amount, transId);
     System.out.println(res);
     TrangloResponseCode status = tc.enquireAirtimeTransactionStatus(transId);
     System.out.println(status);
