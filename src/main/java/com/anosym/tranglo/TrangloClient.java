@@ -96,6 +96,7 @@ public class TrangloClient {
       to = to.trim().substring(1);
     }
     String responseCode = service.requestReload(from, to, prodCode, amount, username, password, transactionId);
+    System.out.println("TrangloResponseCode: " + responseCode);
     return TrangloResponseCode.value(responseCode);
   }
 
