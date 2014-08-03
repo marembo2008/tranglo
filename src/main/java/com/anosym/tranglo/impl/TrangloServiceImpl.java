@@ -19,10 +19,14 @@ import javax.xml.ws.BindingProvider;
  */
 public class TrangloServiceImpl implements TrangloService {
 
-    @Inject
-    private TrangloConfigurationService configurationService;
+    private final TrangloConfigurationService configurationService;
 
-    public TrangloServiceImpl() {
+    /**
+     * @param configurationService
+     */
+    @Inject
+    public TrangloServiceImpl(TrangloConfigurationService configurationService) {
+        this.configurationService = configurationService;
     }
 
     private EPinReloadSoap getEPinReloadService() {
@@ -36,15 +40,6 @@ public class TrangloServiceImpl implements TrangloService {
         }
         service.ping();
         return service;
-    }
-
-    /**
-     * JSE
-     *
-     * @param configurationService
-     */
-    public TrangloServiceImpl(TrangloConfigurationService configurationService) {
-        this.configurationService = configurationService;
     }
 
     public TrangloResponseCode topupAirtime(String phoneNumber, int amount) {
