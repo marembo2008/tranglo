@@ -6,6 +6,8 @@ import com.anosym.tranglo.config.TrangloConfigurationService;
 import com.anosym.tranglo.wsdl.EPinReload;
 import com.anosym.tranglo.wsdl.EPinReloadSoap;
 import com.google.common.base.Strings;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 import javax.xml.ws.BindingProvider;
@@ -17,6 +19,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @author marembo
  */
 public class TrangloServiceImpl implements TrangloService {
+
+    private static final Logger LOG = Logger.getLogger(TrangloServiceImpl.class.getName());
 
     private final TrangloConfigurationService configurationService;
 
@@ -82,6 +86,10 @@ public class TrangloServiceImpl implements TrangloService {
         final String toNumber = valid ? to.trim().substring(1) : to;
         final String userName = configurationService.getUsername();
         final String password = configurationService.getPassword();
+        if (!configurationService.isUseProvidedEndPoint()) {
+            // we are not live.
+            LOG.log(Level.INFO, "Credential:'{'{0}, {1}'}'", new Object[]{userName, password});
+        }
         final String responseCode = service.requestReload(from, toNumber, prodCode, amount, userName, password, transactionId);
 
         return TrangloResponseCode.value(responseCode);
