@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.anosym.tranglo;
+
+import javax.annotation.Nonnull;
 
 /**
  *
@@ -11,13 +8,17 @@ package com.anosym.tranglo;
  */
 public interface TrangloService {
 
-    TrangloResponseCode topupAirtime(String phoneNumber, int amount);
+    TrangloResponseCode topupAirtime(@Nonnull final String phoneNumber, final int amount);
 
-    TrangloResponseCode sendAirtime(String from, String to, int amount);
+    TrangloResponseCode sendAirtime(@Nonnull final String from, @Nonnull final String to, final int amount);
 
-    TrangloResponseCode sendAirtime(String from, String to, int amount, String transactionId);
+    TrangloResponseCode sendAirtime(@Nonnull final String from, @Nonnull final String to, final int amount, @Nonnull final String transactionId);
 
-    TrangloResponseCode sendAirtime(String from, String to, int amount, String transactionId, String prodCode);
+    TrangloResponseCode sendAirtime(@Nonnull final String from,
+                                    @Nonnull final String to,
+                                    final int amount,
+                                    @Nonnull final String transactionId,
+                                    @Nonnull final String prodCode);
 
-    TrangloResponseCode enquireAirtimeTransactionStatus(String transactionId);
+    TrangloResponseCode enquireAirtimeTransactionStatus(@Nonnull final String transactionId);
 }
