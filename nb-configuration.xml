@@ -15,6 +15,5 @@ Any value defined here will override the pom.xml file value but is only applicab
 -->
         <org-netbeans-modules-maven-jaxws._5f_C_5f_EPin_5f_Reload_2e_asmx>http://175.139.151.69:8099/IAT/EPin_Reload.asmx?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_EPin_5f_Reload_2e_asmx>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_EPin_5f_Reload_2e_asmx_5f_1>http://175.139.151.69:8099/IAT/EPin_Reload.asmx?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_EPin_5f_Reload_2e_asmx_5f_1>
-        <netbeans.hint.jdkPlatform>JDK_1.6</netbeans.hint.jdkPlatform>
     </properties>
 </project-shared-configuration>

@@ -9,6 +9,7 @@ import com.google.common.base.Strings;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nonnull;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.xml.ws.BindingProvider;
 
@@ -18,6 +19,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @author marembo
  */
+@ApplicationScoped
 public class TrangloServiceImpl implements TrangloService {
 
     private static final Logger LOG = Logger.getLogger(TrangloServiceImpl.class.getName());
@@ -47,12 +49,14 @@ public class TrangloServiceImpl implements TrangloService {
         return service;
     }
 
+    @Override
     public TrangloResponseCode topupAirtime(@Nonnull final String phoneNumber, final int amount) {
         checkNotNull(phoneNumber, "The phoneNumber to topup must be specified");
 
         return sendAirtime(phoneNumber, phoneNumber, amount);
     }
 
+    @Override
     public TrangloResponseCode sendAirtime(@Nonnull final String from, @Nonnull final String to, final int amount) {
         checkNotNull(from, "The from number must be specified");
         checkNotNull(to, "The to number must be specified");
@@ -61,6 +65,7 @@ public class TrangloServiceImpl implements TrangloService {
         return sendAirtime(from, to, amount, transID);
     }
 
+    @Override
     public TrangloResponseCode sendAirtime(@Nonnull final String from, @Nonnull final String to, final int amount, @Nonnull final String transactionId) {
         checkNotNull(from, "The from number must be specified");
         checkNotNull(to, "The to number must be specified");
@@ -71,6 +76,7 @@ public class TrangloServiceImpl implements TrangloService {
 
     }
 
+    @Override
     public TrangloResponseCode sendAirtime(@Nonnull final String from,
                                            @Nonnull final String to,
                                            final int amount,
@@ -95,6 +101,7 @@ public class TrangloServiceImpl implements TrangloService {
         return TrangloResponseCode.value(responseCode);
     }
 
+    @Override
     public TrangloResponseCode enquireAirtimeTransactionStatus(@Nonnull final String transactionId) {
         checkNotNull(transactionId, "The transactionId must be specified");
 
